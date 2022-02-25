@@ -9,6 +9,17 @@
 <body>
     <header>
 
+        <span><?php the_custom_logo(); ?></span>
+
+        <nav>
+            <?php
+            wp_nav_menu(array(
+                'menu' => 'Main Menu',
+                'menu-id' => 'main-menu'
+            ));
+            ?>
+        </nav>
+
     </header>
 
     <main>
