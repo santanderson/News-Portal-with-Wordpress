@@ -20,4 +20,29 @@ function npThemeSupport(){
 
 add_action('after_setup_theme', 'npThemeSupport');
 
+/*Custom Post Type*/
+
+function npCustomPostTypes(){
+    register_post_type('News',
+        array(
+          'labels' => array('name' => 'news'),
+          'public' => true,
+          'menu_position' => 3,
+          'menu_icon' => 'dashicons-format-aside',
+          'supports' => array('title','thumbnail', 'editor'),
+          'taxonomies' => array('Type')
+        )
+    );
+}
+add_action('init','npCustomPostTypes');
+
+/*Taxonomies*/
+
+function newsTaxonomies(){
+    register_taxonomy('Type', 'news', array(
+        'labels' => array('name' => 'Type'),
+        'hierarchical' => true,
+    ));
+}
+add_action('init', 'newsTaxonomies')
 ?>
